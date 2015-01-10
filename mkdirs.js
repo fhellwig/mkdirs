@@ -25,7 +25,6 @@ var fs = require('fs'),
     strformat = require('strformat');
 
 function mkdirs(dir) {
-    console.log(dir);
     if (fs.existsSync(dir)) {
         if (fs.statSync(dir).isDirectory()) {
             return;
