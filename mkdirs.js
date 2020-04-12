@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015 Frank Hellwig
+ * Copyright (c) 2020 Frank Hellwig
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to
@@ -20,25 +20,24 @@
  * IN THE SOFTWARE.
  */
 
-var fs = require('fs'),
-    path = require('path'),
-    strformat = require('strformat');
+const fs = require('fs');
+const path = require('path');
 
 function mkdirs(dir) {
-    if (fs.existsSync(dir)) {
-        if (fs.statSync(dir).isDirectory()) {
-            return;
-        }
-        throw new Error(strformat("Not a directory: '{0}'", dir));
+  if (fs.existsSync(dir)) {
+    if (fs.statSync(dir).isDirectory()) {
+      return;
     }
-    var i = dir.lastIndexOf(path.sep);
-    if (i < 0) {
-        throw new Error(strformat("No parent directory: '{0}'", dir));
-    }
-    mkdirs(dir.substring(0, i));
-    fs.mkdirSync(dir);
+    throw new Error(`Not a directory: '${dir}'`);
+  }
+  const i = dir.lastIndexOf(path.sep);
+  if (i < 0) {
+    throw new Error(`No parent directory: '${dir}'`);
+  }
+  mkdirs(dir.substring(0, i));
+  fs.mkdirSync(dir);
 }
 
 module.exports = function (dir) {
-    mkdirs(path.resolve(dir));
-}
+  mkdirs(path.resolve(dir));
+};

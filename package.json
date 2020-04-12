@@ -1,24 +1,17 @@
 {
   "name": "mkdirs",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Creates a directory and all parent directories",
   "keywords": [
     "mkdir",
     "directory"
   ],
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "http://www.opensource.org/licenses/MIT"
-    }
-  ],
+  "license": "MIT",
   "author": "Frank Hellwig <frank@hellwig.org>",
   "repository": {
     "type": "git",
     "url": "git://github.com/fhellwig/mkdirs.git"
   },
   "main": "./mkdirs.js",
-  "dependencies": {
-    "strformat": "0.0.x"
-  }
+  "dependencies": {}
 }
