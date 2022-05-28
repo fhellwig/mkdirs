@@ -4,12 +4,12 @@ Creates a directory and all parent directories.
 
 ## Installation
 
-    npm install mkdirs --save
+    npm install mkdirs
 
 ## Usage
 
 ```javascript
-var mkdirs = require('mkdirs');
+import { mkdirs } from 'mkdirs';
 
 mkdirs('./this/that/and/the/other');
 ```

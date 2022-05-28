@@ -20,24 +20,24 @@
  * IN THE SOFTWARE.
  */
 
-const fs = require('fs');
-const path = require('path');
+import { existsSync, mkdirSync, statSync } from 'fs';
+import { normalize, resolve, sep } from 'path';
 
-function mkdirs(dir) {
-  if (fs.existsSync(dir)) {
-    if (fs.statSync(dir).isDirectory()) {
+function _mkdirs(dir) {
+  if (existsSync(dir)) {
+    if (statSync(dir).isDirectory()) {
       return;
     }
     throw new Error(`Not a directory: '${dir}'`);
   }
-  const i = dir.lastIndexOf(path.sep);
+  const i = dir.lastIndexOf(sep);
   if (i < 0) {
     throw new Error(`No parent directory: '${dir}'`);
   }
-  mkdirs(dir.substring(0, i));
-  fs.mkdirSync(dir);
+  _mkdirs(dir.substring(0, i));
+  mkdirSync(dir);
 }
 
-module.exports = function (dir) {
-  mkdirs(path.resolve(dir));
-};
+export function mkdirs(dir) {
+  _mkdirs(resolve(normalize(dir)));
+}

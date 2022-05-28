@@ -1,7 +1,9 @@
 {
   "name": "mkdirs",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "description": "Creates a directory and all parent directories",
+  "main": "./mkdirs.js",
+  "type": "module",
   "keywords": [
     "mkdir",
     "directory"
@@ -12,6 +14,5 @@
     "type": "git",
     "url": "git://github.com/fhellwig/mkdirs.git"
   },
-  "main": "./mkdirs.js",
   "dependencies": {}
 }
